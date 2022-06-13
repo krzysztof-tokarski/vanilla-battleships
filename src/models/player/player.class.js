@@ -1,7 +1,8 @@
-export default class Player {
-  constructor(playerName) {
-    this.playerName = playerName;
-  }
+export class Player {
+  // constructor(playerName) {
+  //   this.playerName = playerName;
+  // }
+  // TODO
 }
 
 // module.exports = {
