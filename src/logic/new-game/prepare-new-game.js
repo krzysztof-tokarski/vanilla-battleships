@@ -6,6 +6,8 @@ import * as globalVariables from '../global.variables';
 export function prepareNewGame() {
   // const player1 = new Player();
   // const player2 = new Player();
+
+  globalVariables.fluidContainer.innerHTML = '';
   
   const gridsContainer = createGridsContainer();
   globalVariables.fluidContainer.appendChild(gridsContainer);
