@@ -58,9 +58,9 @@ body {
       .cell {
         display: flex;
         height: 30px;
-          justify-content: center;
-          align-content: center;
-          align-items: center;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
       }
 
       .grid-top-container {
@@ -97,6 +97,10 @@ body {
               filter: brightness(0.9);
               cursor: pointer;
             }
+          }
+
+          .taken {
+            background-color: rgb(238, 136, 68);
           }
         }
       }

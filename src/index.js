@@ -4,4 +4,3 @@ import { startView } from './features/start-view/start-view';
 
 startView();
 prepareNewGame();
-populateGrid();

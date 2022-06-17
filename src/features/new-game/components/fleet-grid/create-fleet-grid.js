@@ -1,12 +1,11 @@
 /* eslint-disable no-plusplus */
-export function createShipsGrid() {
-  const currentGrid = document.querySelector('.grid');
-  let prefix = 'P1';
-  if (currentGrid) {
-    prefix = 'P2';
-  }
+export function createFleetGrid(playerReference) {
+  // const currentGrid = document.querySelector('.grid');
+  // if (currentGrid) {
+  //   prefix = 'P2';
+  // }
 
-  const letterCoordinates = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+  const LETTER_COORDINATES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 
   const gridContainer = document.createElement('div');
   gridContainer.classList.add('grid-container');
@@ -20,8 +19,8 @@ export function createShipsGrid() {
   const gridLetterCoordinatesContainer = document.createElement('div');
   gridLetterCoordinatesContainer.classList.add('grid-letter-coordinates-container');
 
-  letterCoordinates.forEach((letterCoordinate) => {
-    const indexPosition = letterCoordinates.indexOf(letterCoordinate);
+  LETTER_COORDINATES.forEach((letterCoordinate) => {
+    const indexPosition = LETTER_COORDINATES.indexOf(letterCoordinate);
     if (indexPosition === 0) {
       const emptyCell = document.createElement('div');
       emptyCell.classList.add('cell');
@@ -33,17 +32,17 @@ export function createShipsGrid() {
     const numberCoordinateCell = document.createElement('div');
     numberCoordinateCell.classList.add('cell');
     letterCoordinateCell.textContent = letterCoordinate;
-    numberCoordinateCell.textContent = letterCoordinates.indexOf(letterCoordinate) + 1;
+    numberCoordinateCell.textContent = LETTER_COORDINATES.indexOf(letterCoordinate) + 1;
     gridLetterCoordinatesContainer.appendChild(letterCoordinateCell);
     gridNumberCoordinatesContainer.appendChild(numberCoordinateCell);
   });
 
   const grid = document.createElement('div');
   for (let i = 1; i < 11; i++) {
-    letterCoordinates.forEach((letterCordinate) => {
+    LETTER_COORDINATES.forEach((letterCordinate) => {
       const cell = document.createElement('div');
       cell.classList.add('cell');
-      cell.setAttribute('data-player', `${[prefix]}`);
+      cell.setAttribute('data-player', `${[playerReference]}`);
       cell.setAttribute('data-number-coordinate', `${[i]}`);
       cell.setAttribute('data-letter-coordinate', `${[letterCordinate]}`);
       // cell.setAttribute(`data-${prefix}-cell-id`, `${letterCordinate}-${i}`);
@@ -51,6 +50,7 @@ export function createShipsGrid() {
     });
   }
   grid.classList.add('grid');
+  grid.setAttribute('data-player', `${[playerReference]}`);
 
   gridTopContainer.appendChild(gridLetterCoordinatesContainer);
   gridBottomContainer.appendChild(gridNumberCoordinatesContainer);

@@ -148,4 +148,8 @@ body main #grids-container .grid-bottom-container .grid .cell:hover {
           filter: brightness(0.9);
   cursor: pointer;
 }
+
+body main #grids-container .grid-bottom-container .grid .taken {
+  background-color: #ee8844;
+}
 /*# sourceMappingURL=styles.css.map */

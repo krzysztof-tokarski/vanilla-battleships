@@ -1,9 +1,9 @@
 export class Gameboard {
-  constructor(grid, ships, player) {
+  constructor(grid, fleet) {
     this.grid = grid;
     this.missedAttacks = 0;
-    this.ships = ships;
-    this.player = player;
+    this.fleet = fleet;
+    // this.player = player;
   }
 
   receiveAttack(coordinates) {
