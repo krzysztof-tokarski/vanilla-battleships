@@ -1,7 +1,7 @@
 export class Ship {
-  constructor() {
+  constructor(length) {
     this.length = length;
-    this.hitAreas = hitAreas;
+    this.hitAreas = [];
     this.sunk = false;
   }
 

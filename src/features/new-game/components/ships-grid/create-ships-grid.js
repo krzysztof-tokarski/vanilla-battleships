@@ -43,7 +43,10 @@ export function createShipsGrid() {
     letterCoordinates.forEach((letterCordinate) => {
       const cell = document.createElement('div');
       cell.classList.add('cell');
-      cell.setAttribute('data-cell-id', `${prefix}-${letterCordinate}-${i}`);
+      cell.setAttribute('data-player', `${[prefix]}`);
+      cell.setAttribute('data-number-coordinate', `${[i]}`);
+      cell.setAttribute('data-letter-coordinate', `${[letterCordinate]}`);
+      // cell.setAttribute(`data-${prefix}-cell-id`, `${letterCordinate}-${i}`);
       grid.appendChild(cell);
     });
   }

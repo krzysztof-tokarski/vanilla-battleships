@@ -1,5 +1,7 @@
-import { prepareNewGame } from './logic/new-game/prepare-new-game';
-import { startView } from './logic/start-view/start-view';
+import { populateGrid } from './features/new-game/components/populate-grid/populate-board';
+import { prepareNewGame } from './features/new-game/prepare-new-game';
+import { startView } from './features/start-view/start-view';
 
 startView();
 prepareNewGame();
+populateGrid();
