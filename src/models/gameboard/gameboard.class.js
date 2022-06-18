@@ -1,6 +1,10 @@
+import { Cell } from '../models';
+
 export class Gameboard {
   constructor(grid, fleet) {
     this.grid = grid;
+    this.takenGridCells = [];
+    this.blockedGridCells = [];
     this.missedAttacks = 0;
     this.fleet = fleet;
     // this.player = player;
@@ -14,4 +18,40 @@ export class Gameboard {
     // TODO
   }
 
+  get gridCells() {
+    return this.grid.cells;
+  }
+
+  get takenCells() {
+    return this.takenGridCells;
+  }
+
+  get blockedCells() {
+    return this.blockedGridCells;
+  }
+
+  get gridFleet() {
+    return this.fleet;
+  }
+
+  getFreeCells() {
+    const allCells = this.gridCells;
+    const freeCells = allCells;
+    const takenCells = this.takenCells;
+    const blockedCells = this.blockedCells;
+    const unavailableCells = takenCells.concat(blockedCells);
+    unavailableCells.forEach((cell) => {
+      const index = freeCells.indexOf(cell);
+      freeCells.splice(index, 1);
+    });
+
+    return freeCells;
+  }
+
+  /**
+   * @param {Cell[]} cells
+   */
+  set takenGridCels(cells) {
+    this.takenGridCells.push(cells);
+  }
 }

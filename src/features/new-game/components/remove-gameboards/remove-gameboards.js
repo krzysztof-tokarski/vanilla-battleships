@@ -1,5 +1,5 @@
 import * as globalVariables from '../../../global.variables';
 
-export function removeGrids() {
+export function removegameboards() {
   globalVariables.fluidContainer.innerHTML = '';
 }

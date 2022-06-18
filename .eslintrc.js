@@ -12,5 +12,10 @@ module.exports = {
   },
   rules: {
     'import/prefer-default-export': 'off',
+    'import/no-absolute-path': 'off',
+    'import/extensions': 'off',
+    'import/no-unresolved': 'off',
+    'no-restricted-syntax': 'off',
+    'max-len': 'off',
   },
 };
