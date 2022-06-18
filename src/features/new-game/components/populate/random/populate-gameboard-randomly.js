@@ -29,9 +29,13 @@ export function populateGameboardGridRandomly(gameboard) {
         if (verifiedCellsRow.length >= shipsLength) {
           invalid = false;
           processVerifiedCellsRow(verifiedCellsRow, gameboard, ship);
-          verifiedCellsRow.forEach(cell => {
-            console.log(cell)
-          })
+
+          verifiedCellsRow.forEach((cell) => {
+            const cellInDOM = document.querySelector(`[data-player="P2"][data-number-coordinate="${cell.numberCoordinate}"][data-letter-coordinate="${cell.letterCoordinate}"]`);
+            cellInDOM.classList.add('taken');
+          });
+
+          // TODO remove
         }
 
         // const compatibleCells = freeCells.filter((cell) => verifyCompatibility(cell, randomFreeCell, playerReference));

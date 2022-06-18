@@ -22,7 +22,7 @@ export class Gameboard {
     return this.grid.cells;
   }
 
-  get takenCells() {
+  get getTakenCells() {
     return this.takenGridCells;
   }
 
@@ -36,8 +36,8 @@ export class Gameboard {
 
   getFreeCells() {
     const allCells = this.gridCells;
-    const freeCells = allCells;
-    const takenCells = this.takenCells;
+    const freeCells = [...allCells];
+    const takenCells = this.takenGridCells;
     const blockedCells = this.blockedCells;
     const unavailableCells = takenCells.concat(blockedCells);
     unavailableCells.forEach((cell) => {
@@ -51,7 +51,7 @@ export class Gameboard {
   /**
    * @param {Cell[]} cells
    */
-  set takenGridCels(cells) {
-    this.takenGridCells.push(cells);
+  set modifyTakenCells(cells) {
+    this.takenGridCells = this.takenGridCells.concat(cells);
   }
 }

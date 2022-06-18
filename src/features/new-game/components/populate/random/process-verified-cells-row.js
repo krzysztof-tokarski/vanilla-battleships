@@ -9,6 +9,6 @@ import { Gameboard, Ship } from '../../../../../models/models';
  */
 
 export function processVerifiedCellsRow(verifiedCellsRow, gameboard, ship) {
-  gameboard.takenCells.push(verifiedCellsRow);
+  gameboard.modifyTakenCells = verifiedCellsRow;
   ship.shipsAreas = verifiedCellsRow;
 }
