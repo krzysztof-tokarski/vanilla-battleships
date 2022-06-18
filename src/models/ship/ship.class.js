@@ -1,3 +1,5 @@
+import { Cell } from '../models';
+
 export class Ship {
   constructor(name, cellRequirement) {
     this.name = name;
@@ -12,19 +14,38 @@ export class Ship {
     return this.cellRequirement;
   }
 
-  /**
-   * @param {{letterCoordinate: string, numberCoordinate: number}[]} cells
-   */
   set shipsAreas(cells) {
     this.areas = cells;
   }
 
-  takeDamage() {
-  // TODO
+  get shipsAreas() {
+    return this.areas;
+  }
+
+
+  /**
+   * @param {Cell[]} cells
+   * @param {Cell} cell
+   */
+
+
+  set setHitAreas(cell) {
+    this.hitAreas.push(cell);
+  }
+  
+  get getHitAreas() {
+    return this.hitAreas;
+  }
+
+
+  takeDamage(cell) {
+    if (this.getHitAreas.contains(cell)) {
+      this.hitAreas = cell;
+    }
   }
 
   isSunk() {
-  // TODO
+    this.shipsLength === this.getHitAreas
   }
 
 

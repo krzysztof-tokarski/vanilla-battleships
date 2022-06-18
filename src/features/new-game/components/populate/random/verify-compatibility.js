@@ -6,7 +6,7 @@ export function verifyCellCompatibility(cell, randomFreeCell) {
 }
 
 export function verifyCellArrayCompatibility(cellsArray, shipsLength) {
-  const validRow = [];
+  let validRow = [];
 
   for (const cell of cellsArray) {
     if (validRow.length === shipsLength) {
@@ -21,11 +21,9 @@ export function verifyCellArrayCompatibility(cellsArray, shipsLength) {
       if (cell.numberCoordinate === (lastCell.numberCoordinate + 1)) {
         validRow.push(cell);
       } else {
-        console.log(lastCell, cell);
-      // validRow = [];
+        validRow = [];
       }
     }
   }
   return validRow;
-
 }

@@ -17,5 +17,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'no-restricted-syntax': 'off',
     'max-len': 'off',
+    'no-param-reassign': 'off',
   },
 };
