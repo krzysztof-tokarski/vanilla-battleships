@@ -37,6 +37,14 @@ export class Ship {
     return this.hitAreas;
   }
 
+  set setName(value) {
+    this.name = value;
+  }
+
+  get getName() {
+    return this.name;
+  }
+
 
   takeDamage(cell) {
     if (this.getHitAreas.contains(cell)) {
