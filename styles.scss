@@ -27,10 +27,14 @@ body {
     align-items: center;
     gap: 1em;
 
+    button {
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
     #new-game-button {
       width: 100px;
       height: 30px;
-      cursor: pointer;
     }
   
     #fluid-container {
@@ -42,18 +46,27 @@ body {
       flex: 1;
     }
 
-    #current-choice-text-container {
-      flex: 1;
+    #choice-container {
       display: flex;
       flex-direction: column;
-      text-align: center;
+      gap: 2em;
 
-      #current-choice-dynamic-text {
-        margin-top: 10px;
-        color: purple;
-        font-size: 30px;
+      #current-choice-text-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+  
+        #current-choice-dynamic-text {
+          margin-top: 10px;
+          color: purple;
+          font-size: 30px;
+        }
       }
+
     }
+
+
   
     #gameboards-container {
       width: 80%;

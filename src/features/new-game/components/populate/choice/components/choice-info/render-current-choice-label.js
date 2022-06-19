@@ -1,5 +1,3 @@
-import { fluidContainer } from '../../../../global.variables';
-
 export function renderCurrentChoiceLabel(shipsName) {
   const currentChoiceTextContainer = document.querySelector('#current-choice-text-container');
 
@@ -16,7 +14,9 @@ export function renderCurrentChoiceLabel(shipsName) {
     newChoiceTextContainer.appendChild(currentChoiceStaticText);
     newChoiceTextContainer.appendChild(currentChoiceDynamicText);
 
-    fluidContainer.appendChild(newChoiceTextContainer);
+    const parent = document.querySelector('#choice-container');
+
+    parent.appendChild(newChoiceTextContainer);
   } else {
     const currentChoiceDynamicText = document.querySelector('#curent-choice-dynamic-text');
     currentChoiceDynamicText.textContent = shipsName;
