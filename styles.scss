@@ -51,9 +51,20 @@ body {
       gap: 5em;
 
       .gameboard-container {
+        display: flex;
+        flex-direction: column;
         flex: 1;
         width: 460px;
         height: fit-content;
+
+        h2 {
+          align-self: flex-end;
+          text-align: center;
+          width: 91%;
+          margin-top: 5px;
+          font-size: 15px;
+          color: gray;
+        }
       }
 
       .cell {
@@ -97,6 +108,15 @@ body {
             &:hover {
               filter: brightness(0.9);
               cursor: pointer;
+            }
+          }
+
+          .disabled {
+            background-color: lightgray;
+
+            &:hover {
+              filter: none;
+              cursor: default;
             }
           }
 

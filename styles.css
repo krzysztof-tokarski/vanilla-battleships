@@ -82,6 +82,13 @@ body main #gameboards-container {
 }
 
 body main #gameboards-container .gameboard-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -89,6 +96,16 @@ body main #gameboards-container .gameboard-container {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+body main #gameboards-container .gameboard-container h2 {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-align: center;
+  width: 91%;
+  margin-top: 5px;
+  font-size: 15px;
+  color: gray;
 }
 
 body main #gameboards-container .cell {
@@ -148,6 +165,16 @@ body main #gameboards-container .gameboard-bottom-container .gameboard .cell:hov
   -webkit-filter: brightness(0.9);
           filter: brightness(0.9);
   cursor: pointer;
+}
+
+body main #gameboards-container .gameboard-bottom-container .gameboard .disabled {
+  background-color: lightgray;
+}
+
+body main #gameboards-container .gameboard-bottom-container .gameboard .disabled:hover {
+  -webkit-filter: none;
+          filter: none;
+  cursor: default;
 }
 
 body main #gameboards-container .gameboard-bottom-container .gameboard .taken {

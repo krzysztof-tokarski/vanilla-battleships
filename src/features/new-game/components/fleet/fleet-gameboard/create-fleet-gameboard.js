@@ -1,10 +1,7 @@
+import { computerPlayerReference } from '/src/features/global.variables';
+
 /* eslint-disable no-plusplus */
 export function createFleetGameboard(playerReference) {
-  // const currentgameboard = document.querySelector('.gameboard');
-  // if (currentgameboard) {
-  //   prefix = 'P2';
-  // }
-
   const LETTER_COORDINATES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 
   const gameboardContainer = document.createElement('div');
@@ -46,6 +43,9 @@ export function createFleetGameboard(playerReference) {
       cell.setAttribute('data-number-coordinate', `${i}`);
       cell.setAttribute('data-letter-coordinate', `${letterCordinate}`);
       // cell.setAttribute(`data-${prefix}-cell-id`, `${letterCordinate}-${i}`);
+      if (playerReference === computerPlayerReference) {
+        cell.classList.add('disabled');
+      }
       gameboard.appendChild(cell);
     });
   }
@@ -58,6 +58,16 @@ export function createFleetGameboard(playerReference) {
 
   gameboardContainer.appendChild(gameboardTopContainer);
   gameboardContainer.appendChild(gameboardBottomContainer);
+
+  const gameboardLabel = document.createElement('h2');
+
+  if (playerReference === 'P1') {
+    gameboardLabel.textContent = 'Your gameboard';
+  } else {
+    gameboardLabel.textContent = "Opponent's grid";
+  }
+
+  gameboardContainer.appendChild(gameboardLabel);
 
   return gameboardContainer;
 }
