@@ -1,4 +1,4 @@
-import { changeDirectionButtonValue } from './change-direction-button-value';
+import { processDirectionButtonClick } from './process-direction-button-click';
 
 export function createDirectionButton() {
   const parent = document.querySelector('#choice-container');
@@ -7,6 +7,10 @@ export function createDirectionButton() {
   button.setAttribute('value', 'horizontal');
   button.textContent = 'horizontal';
   // eslint-disable-next-line no-shadow
-  button.addEventListener('click', () => changeDirectionButtonValue(button));
+  
+  const ship = {length: 5}
+
+  button.addEventListener('click', () => processDirectionButtonClick(button, ship));
+  // TODO
   parent.appendChild(button);
 }

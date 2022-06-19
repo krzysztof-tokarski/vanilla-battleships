@@ -64,7 +64,7 @@ export function createFleetGameboard(playerReference) {
   if (playerReference === 'P1') {
     gameboardLabel.textContent = 'Your gameboard';
   } else {
-    gameboardLabel.textContent = "Opponent's grid";
+    gameboardLabel.textContent = "Opponent's gameboard";
   }
 
   gameboardContainer.appendChild(gameboardLabel);

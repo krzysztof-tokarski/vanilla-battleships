@@ -18,5 +18,6 @@ module.exports = {
     'no-restricted-syntax': 'off',
     'max-len': 'off',
     'no-param-reassign': 'off',
+    'no-plusplus': 'off',
   },
 };

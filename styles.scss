@@ -64,9 +64,39 @@ body {
         }
       }
 
+      .horizontal, .vertical {
+        display: flex;
+        align-items: center;
+      }
+
+      .vertical {
+        flex-direction: column;
+      }
+
+      #draggable-ship-container {
+        width: 200px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        #ship-cells-container {
+          width: fit-content;
+          height: fit-content;
+
+          .cell {
+            display: flex;
+            height: 30px;
+            width: 40px;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            border: 1px solid gray;
+            background-color: darkblue;
+          }
+        }
+      }
     }
-
-
   
     #gameboards-container {
       width: 80%;
@@ -100,9 +130,11 @@ body {
       .cell {
         display: flex;
         height: 30px;
+        width: 40px;
         justify-content: center;
         align-content: center;
         align-items: center;
+        // TODO
       }
 
       .gameboard-top-container {
