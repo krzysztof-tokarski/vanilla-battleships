@@ -7,6 +7,7 @@ import { renderCurrentChoiceLabel } from './components/populate/choice/component
 import { createChoiceContainer } from './components/populate/choice/components/choice-info/create-choice-container';
 import { createDirectionButton } from './components/populate/choice/components/direction-button/create-direction-button';
 import { createDraggableShipContainer } from './components/populate/choice/components/draggable-ship/create-draggable-ship-container';
+import { renderDraggableShip } from './components/populate/choice/components/draggable-ship/render-draggable-ship';
 
 export function prepareNewGame() {
   removegameboards();
@@ -21,5 +22,6 @@ export function prepareNewGame() {
   renderCurrentChoiceLabel('xD');
   createDirectionButton();
   createDraggableShipContainer();
+  renderDraggableShip({length: 5});
   // TODO WRAPPER
 }

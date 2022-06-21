@@ -9,6 +9,7 @@ export function createDirectionButton() {
   // eslint-disable-next-line no-shadow
   
   const ship = {length: 5}
+  // TODO
 
   button.addEventListener('click', () => processDirectionButtonClick(button, ship));
   // TODO

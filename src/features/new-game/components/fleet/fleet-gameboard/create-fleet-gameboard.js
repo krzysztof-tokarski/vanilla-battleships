@@ -52,6 +52,15 @@ export function createFleetGameboard(playerReference) {
   gameboard.classList.add('gameboard');
   gameboard.setAttribute('data-player', `${playerReference}`);
 
+  // function dropHandler(ev) {
+  //   ev.preventDefault();
+  //   // Get the id of the target and add the moved element to the target's DOM
+  //   const data = ev.dataTransfer.getData("text/plain");
+  //   ev.target.appendChild(document.getElementById(data));
+  //  }
+
+  //  gameboard.addEventListener('ondrop', (event) => dropHandler(event));
+
   gameboardTopContainer.appendChild(gameboardLetterCoordinatesContainer);
   gameboardBottomContainer.appendChild(gameboardNumberCoordinatesContainer);
   gameboardBottomContainer.appendChild(gameboard);
@@ -70,4 +79,8 @@ export function createFleetGameboard(playerReference) {
   gameboardContainer.appendChild(gameboardLabel);
 
   return gameboardContainer;
+}
+
+function makeGameboardAcceptDraggables() {
+
 }
