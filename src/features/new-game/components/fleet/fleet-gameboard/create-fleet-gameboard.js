@@ -1,5 +1,37 @@
 import { computerPlayerReference } from '/src/features/global.variables';
 
+function dragEnter(e) {
+  e.preventDefault();
+  console.log('drag enter');
+  e.target.classList.add('drag-over');
+}
+
+function dragOver(e) {
+  e.preventDefault();
+  console.log('dragging intensifies');
+  e.target.classList.add('drag-over');
+}
+
+function dragLeave(e) {
+  console.log('dragging leave');
+  e.target.classList.remove('drag-over');
+}
+
+function drop(e) {
+  console.log('DROP!');
+  e.target.classList.remove('drag-over');
+
+  // get the draggable element
+  const id = e.dataTransfer.getData('text/plain');
+  const draggable = document.getElementById(id);
+
+  // add it to the drop target
+  console.log(e.target);
+  // display the draggable element
+  // draggable.classList.remove('hide');
+}
+
+
 /* eslint-disable no-plusplus */
 export function createFleetGameboard(playerReference) {
   const LETTER_COORDINATES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
@@ -45,21 +77,17 @@ export function createFleetGameboard(playerReference) {
       // cell.setAttribute(`data-${prefix}-cell-id`, `${letterCordinate}-${i}`);
       if (playerReference === computerPlayerReference) {
         cell.classList.add('disabled');
+      } else {
+        cell.addEventListener('dragenter', dragEnter);
+        cell.addEventListener('dragover', dragOver);
+        cell.addEventListener('dragleave', dragLeave);
+        cell.addEventListener('drop', drop);
       }
       gameboard.appendChild(cell);
     });
   }
   gameboard.classList.add('gameboard');
   gameboard.setAttribute('data-player', `${playerReference}`);
-
-  // function dropHandler(ev) {
-  //   ev.preventDefault();
-  //   // Get the id of the target and add the moved element to the target's DOM
-  //   const data = ev.dataTransfer.getData("text/plain");
-  //   ev.target.appendChild(document.getElementById(data));
-  //  }
-
-  //  gameboard.addEventListener('ondrop', (event) => dropHandler(event));
 
   gameboardTopContainer.appendChild(gameboardLetterCoordinatesContainer);
   gameboardBottomContainer.appendChild(gameboardNumberCoordinatesContainer);

@@ -1,24 +1,32 @@
 export function createDraggableShip(ship, orientation) {
-  // const { shipsLength } = ship;
   const shipsLength = ship.length;
-  // TODO
-  // function dragstartHandler(ev) {
-  //   // Add the target element's id to the data transfer object
-  //   ev.dataTransfer.setData('text/plain', ev.target.innerText);
-  //   ev.dataTransfer.setData('text/html', ev.target.outerHTML);
-  //   ev.dataTransfer.setData('text/uri-list', ev.target.ownerDocument.location.href);
-  //   ev.dataTransfer.dropEffect = "move";
-  //   ev.dataTransfer.dropEffect = "link";
-  // }
+
+  function dragStart(e) {
+    console.log('drag starts...');
+    e.dataTransfer.setData('text/plain', e.target.id);
+    // setTimeout(() => {
+    //   e.target.classList.add('hide');
+    // }, 0);
+  }
+
+  function registerHoverTarget(e) {
+    const { target } = e;
+    const { shipName, cellNo } = target.dataset;
+    const lastCell = { shipName, cellNo };
+    sessionStorage.setItem('lastCell', JSON.stringify(lastCell));
+  }
 
   const shipCellsContainer = document.createElement('div');
   shipCellsContainer.setAttribute('id', 'ship-cells-container');
   shipCellsContainer.setAttribute('draggable', true);
-  // shipCellsContainer.addEventListener('dragstart', dragstartHandler);
+  shipCellsContainer.addEventListener('dragstart', dragStart);
 
   for (let i = 0; i < shipsLength; i++) {
     const cell = document.createElement('div');
     cell.classList.add('cell');
+    cell.setAttribute('data-ship-name', `${ship.name}`);
+    cell.setAttribute('data-cell-no', `${i + 1}`);
+    cell.addEventListener('mouseenter', registerHoverTarget);
     shipCellsContainer.appendChild(cell);
   }
 

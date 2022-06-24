@@ -22,6 +22,6 @@ export function prepareNewGame() {
   renderCurrentChoiceLabel('xD');
   createDirectionButton();
   createDraggableShipContainer();
-  renderDraggableShip({length: 5});
+  renderDraggableShip({length: 5, name: 'ship'});
   // TODO WRAPPER
 }
